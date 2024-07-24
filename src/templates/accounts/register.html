@@ -1,0 +1,41 @@
+{% extends "_base.html" %}
+
+{% block content %}
+	<div class="login">
+		<div class="btnfos btnfos-4 form drop">
+      <form role="form" method="post" action="">
+				<legend>Create Account</legend>
+        {{ form.csrf_token }}
+          {{ form.email(placeholder="Email", class="form-control mb-2") }}
+          {{ form.email.label }}
+            {% if form.email.errors %}
+              {% for error in form.email.errors %}
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {{ form.password(placeholder="Password", class="form-control mb-2") }}
+          {{ form.password.label }}
+            {% if form.password.errors %}
+              {% for error in form.password.errors %}
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {{ form.confirm(placeholder="Confirm Password", class="form-control mb-2") }}
+          {{ form.confirm.label }}
+            {% if form.confirm.errors %}
+              {% for error in form.confirm.errors %}
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+              {% endfor %}
+            {% endif %}
+        <button class="submit" type="submit">Sign up</button>
+        <p class="text-center">Already registered? &nbsp;&nbsp; <a href="{{ url_for('accounts.login') }}">Login now</a></p>
+      </form>
+		</div>
+	</div>
+{% endblock %}
