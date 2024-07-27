@@ -20,14 +20,12 @@ menuTog.addEventListener('click', () => {
 			let body = document.getElementsByTagName("body")[0];
 			body.append(closeNav);
 			closeNav.classList.add("full-block")
-			console.log("full-block in place");
 
 			function addActive(item, index) {
 				let timeout = (index + 1) * 100;
 				setTimeout(activate, timeout);
 				function activate() {
 					item.classList.add('active');
-					console.log('activating');
 				}
 			}
 	}
@@ -99,4 +97,76 @@ userBtn.addEventListener('click', () => {
 		}			
 	});					
 });
+
+// Wobble div
+let wobblers = document.querySelectorAll('.weeble');
+
+wobblers.forEach(wobblEm);
+function wobblEm(item) {
+	item.addEventListener('mouseover', () => {
+		item.classList.add('wobble');
+		setTimeout(resetWobble, 500);
+		function resetWobble() {
+			item.classList.remove("wobble");
+		}
+	});								
+}
+
+// Power button
+let bulbOn = document.getElementById('bulb-on');
+let bulbOff = document.getElementById('bulb-off');
+let powerBtn = document.getElementById('power');
+
+if (document.URL == 'http://192.168.0.4:5000/devices/lamp/off') {
+	powerOff();
+}	
+if (document.URL == 'http://192.168.0.4:5000/devices/lamp/on') {
+	powerOn();
+}	
+if (document.URL == 'http://192.168.0.4:5000/devices') {
+	if (document.getElementById('status').innerText == "On") {
+		powerOn();
+	}	else {
+		powerOff();
+	}		
+}	
+
+powerBtn.addEventListener('change', () => {
+	powerBtn.checked == true ? turnOn() : turnOff();
+	function turnOn() {
+		window.location.href = "http://192.168.0.4:5000/devices/lamp/on"	
+	}
+	function turnOff() {
+		window.location.href = "http://192.168.0.4:5000/devices/lamp/off"	
+	}
+});
+
+function powerOn() {
+	powerBtn.checked = true;
+	bulbOn.style.display = 'block';
+	bulbOn.style.marginLeft = ".625rem";
+	bulbOff.style.display = 'none';
+}	
+
+function powerOff() {
+	powerBtn.checked = false;
+	bulbOn.style.display = 'none';
+	bulbOff.style.display = 'block';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

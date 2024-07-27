@@ -24,83 +24,8 @@
 				{% endif %}
       {% endwith %}
 		</div>
-			{% block content %}{% endblock content %}	
+		{% block content %}{% endblock content %}	
 		{% block js %}{% endblock js %}	
-		<script>
-			// Power button
-			localStorage.setItem('bulb', 'off');
-			let powerBtn = document.getElementById('power');
-			let bulbOn = document.getElementById('bulb-on');
-			let bulbOff = document.getElementById('bulb-off');
-			if (powerBtn != null) {
-				localStorage.getItem('bulb') == 'off' ? powerOff() : powerOn();
-				
-				powerBtn.addEventListener('click', () => {
-					powerBtn.checked ? powerOn() : powerOff(); 
-				});
-			}		
-			function powerOn() {
-				bulbOn.style.display = 'block';
-				bulbOn.style.marginLeft = ".4rem";
-				bulbOff.style.display = 'none';
-				localStorage.removeItem('bulb');
-				localStorage.setItem('bulb', 'on');
-			}				
-			function powerOff() {
-				bulbOn.style.display = 'none';
-				bulbOff.style.display = 'block';
-				localStorage.removeItem('bulb');
-				localStorage.setItem('bulb', 'off');
-			}
-
-			// Wobble div
-			let wobblers = document.querySelectorAll('.weeble');
-			
-			wobblers.forEach(wobblEm);
-			function wobblEm(item) {
-				item.addEventListener('mouseover', () => {
-					item.classList.add('wobble');
-					setTimeout(resetWobble, 500);
-					function resetWobble() {
-						item.classList.remove("wobble");
-					}
-				});								
-			}
-
-			/*				
-			// Http request
-			let btnList = document.getElementsByTagName("input")
-			let btn = btnList[0];
-			if (document.getElementById('status').innerText == "On") {
-				btn.checked = true;
-				document.getElementById('bulb-off').style.display = 'none';
-				document.getElementById('bulb-on').style.display = 'block';
-			}	else {
-				btn.checked = false;
-				document.getElementById('bulb-off').style.display = 'block';
-				document.getElementById('bulb-on').style.display = 'none';
-			}
-			btn.addEventListener('change', () => {
-				let status = document.getElementById('status');
-				console.log(status.innerHtml)
-				status.innerText == "Off" ? ledOn() : ledOff();
-				status.innerText == "Off" ? status.innerText = "On" : status.innerText = "Off";
-			});							
-
-			function ledOn() {
-				const Http = new XMLHttpRequest();
-				const url='http://192.168.0.4:5000/devices/fan/on';
-				Http.open("GET", url);
-				Http.send();
-			}							
-			function ledOff() {
-				const Http = new XMLHttpRequest();
-				const url='http://192.168.0.4:5000/devices/fan/off';
-				Http.open("GET", url);
-				Http.send();
-			}
-			*/
-		</script>
 		<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 	</body>
 </html>

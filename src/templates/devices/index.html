@@ -2,15 +2,12 @@
 {% block content %}
 		<main class="devices">
 
-			<div class="mt-20 btnfos btnfos-4 animated weeble">
+			<div class="mt-20 btnfos btnfos-4 animated weeble drop">
 			<div class="card">
-
-							
 				<div class="switch">
 					<div class="power-switch">
 						<input id="power" type="checkbox" />
 						<div class="button">
-
 							<svg class="power-off">
 								<use xlink:href="#line" class="line" />
 								<use xlink:href="#circle" class="circle" />
@@ -19,7 +16,6 @@
 								<use xlink:href="#line" class="line" />
 								<use xlink:href="#circle" class="circle" />
 							</svg>
-
 						</div>
 					</div>
 					<!-- SVG -->
@@ -32,25 +28,26 @@
 						</symbol>
 					</svg>
 				</div>
-				
 				<div class="meta">
-					<h2>Fan</h2>
+					<h2>Lamp</h2>
 					<p id="led-red">
-					Status: ==> <span id="status">{{ fanSts }}</span>
+					Status: ==>
+					<span id="status">
+						{% if lamp == 0 %}
+							Off
+						{% else %}
+							On
+						{% endif %}
+					</span>
 					</p>
 				</div>
-			
-			
 				<div class="bulbs">
 					<img id="bulb-on" src="{{ url_for('static', filename='vendors/images/bulb-on.webp') }}" alt="Bulb On"/>
 					<img id="bulb-off" src="{{ url_for('static', filename='vendors/images/bulb-off.webp') }}" alt="Bulb Off"/>
 				</div>
-
 			</div>
-
-			</div>
-			
-  
-
+		</div>
 	</main>
 {% endblock content %}
+
+

@@ -41,6 +41,7 @@ pycodestyle==2.9.1
 Pygments==2.18.0
 python-decouple==3.6
 python-dotenv==1.0.1
+RPi.GPIO==0.7.1
 six==1.16.0
 SQLAlchemy==1.4.40
 stack-data==0.6.3
