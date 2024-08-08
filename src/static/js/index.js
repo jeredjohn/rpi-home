@@ -112,34 +112,54 @@ function wobblEm(item) {
 	});								
 }
 
-// Power button
-let bulbOn = document.getElementById('bulb-on');
-let bulbOff = document.getElementById('bulb-off');
-let powerBtn = document.getElementById('power');
 
-if (document.URL == 'http://192.168.0.4:5000/devices/lamp/off') {
+// Power button
+/*
+let powerBtn = document.getElementById('power');
+let deviceStatus = document.querySelector('.status');
+
+if (powerBtn != null) {
+	powerBtn.addEventListener('change', () => {
+		powerBtn.checked == true ? turnOn() : turnOff();
+		function turnOn() {
+			console.log("button turned on");
+			window.location.href = "http://192.168.0.5:5000/devices/lamp/on";
+		}
+		function turnOff() {
+			console.log("button turned off");
+			window.location.href = "http://192.168.0.5:5000/devices/lamp/off";	
+		}
+	});
+}
+if (document.URL.includes("/off")) {
+	deviceStatus.innerHtml = "Off";
+	deviceStatus.style.color = "#A50E39";
+	powerBtn.checked = false;
+}	
+
+if (document.URL.includes("/on")) {
+	deviceStatus.innerHtml = "On";
+	deviceStatus.style.color = "#74A827";
+	powerBtn.checked = true;
+}
+*/
+
+/* let bulbOn = document.getElementById('ubulb-on');
+let bulbOff = document.getElementById('bulb-off');
+
+if (document.URL == 'http://192.168.0.5:5000/devices/lamp/off') {
 	powerOff();
 }	
-if (document.URL == 'http://192.168.0.4:5000/devices/lamp/on') {
+if (document.URL == 'http://192.168.0.5:5000/devices/lamp/on') {
 	powerOn();
 }	
-if (document.URL == 'http://192.168.0.4:5000/devices') {
-	if (document.getElementById('status').innerText == "On") {
+if (document.URL == 'http://192.168.0.5:5000/devices') {
+	if (document.querySelector('.status').innerText == "On") {
 		powerOn();
 	}	else {
 		powerOff();
 	}		
 }	
-
-powerBtn.addEventListener('change', () => {
-	powerBtn.checked == true ? turnOn() : turnOff();
-	function turnOn() {
-		window.location.href = "http://192.168.0.4:5000/devices/lamp/on"	
-	}
-	function turnOff() {
-		window.location.href = "http://192.168.0.4:5000/devices/lamp/off"	
-	}
-});
 
 function powerOn() {
 	powerBtn.checked = true;
@@ -153,7 +173,7 @@ function powerOff() {
 	bulbOn.style.display = 'none';
 	bulbOff.style.display = 'block';
 }
-
+*/
 
 
 

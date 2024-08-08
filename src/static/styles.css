@@ -14,13 +14,28 @@
     --text: #ccc;
     --text-lt: #fff; 
     --bg-op-30: hsla(0, 0%, 80%, 30%);
-
+	--link: #00bfff;
     --rpi-green: #74A827;
     --rpi-red: #A50E39;
-    // Animations
     --cx: 18.75%;
     --cy: 58%;
     --r: 9;
+}
+
+.link {
+	color: var(--link);
+}
+
+.red {
+	color: var(--rpi-green);
+}
+
+.green {
+	color: var(--rpi-red);
+}
+
+.blue {
+	color: blue;
 }
 
 .error {
@@ -30,15 +45,17 @@
 }
 
 .jumbotron {
-  // should be relative path of the entry scss file
   background-image: url("../../vendors/images/sample.jpg");
   background-size: cover;
+}
+
+.center {
+	text-align: center;
 }
 
 html {
   width: 100%;
   height: 100%;
-  overflow: hidden;
   display: flex;
   justify-content: center;
 }
@@ -51,6 +68,51 @@ body {
   position: relative;
   color: var(--text);
   background: #000;
+}
+
+.flex-row-cen {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.device-card {
+	display: none;
+}
+
+div.device-deck {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	padding: 1rem;
+	border-radius: .3rem;
+}
+
+div.device-selection {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+div.devices {
+	margin-top: 3rem;
+}
+
+div.devices h2 {
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+}
+
+div.device_list {
+	width: 30rem;
+	padding: 1rem;
+	border-radius: .3rem;
+}
+
+div.device-info {
+	display: flex;
+	justify-content: space-between;
+	margin: .5rem;
 }
 
 main.devices {
@@ -99,7 +161,6 @@ div.home-logo {
 div.home-logo > img {
     position: absolute;
     width: 34%;
-    height: calc(width * 33%);
     bottom: 0;
     left: 30%;
 }
@@ -669,7 +730,8 @@ div.full-block {
 } 
 
 @media all and (max-width: 1000px) {
-	div.btnfos {
+	div.btnfos,
+	div.device-deck {
 		width: 80%;
 	}
 }	
